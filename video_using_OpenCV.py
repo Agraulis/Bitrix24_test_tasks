@@ -13,12 +13,12 @@ out = cv2.VideoWriter(f'{FILE_NAME}.mp4', fourcc, FPS, (SIZE, SIZE))
 
 font = cv2.FONT_HERSHEY_SIMPLEX
 font_scale = 1
-thickness = 3
+thickness = 2
 color = (255, 125, 255)
 bg_color = (0, 125, 0)
 text_size, _ = cv2.getTextSize(TEXT, font, font_scale, thickness)
 text_width, text_height = text_size
-scroll_speed = text_width // (DURATION - 1)
+scroll_speed = (text_width + SIZE) / DURATION
 
 # создаем фон
 background = np.zeros((SIZE, SIZE, 3), dtype=np.uint8)
@@ -33,7 +33,7 @@ for i in range(FPS * DURATION):
     img = background.copy()
     cv2.putText(img, TEXT, (x, y), font, font_scale, color, thickness)
 
-    shift = scroll_speed // FPS
+    shift = int(scroll_speed // FPS)
     x -= shift if shift else 1
     if x < -text_width:
         x = SIZE
