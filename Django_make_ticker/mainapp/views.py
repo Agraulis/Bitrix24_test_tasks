@@ -32,7 +32,7 @@ class MakeTicker(TemplateView):
         bg_color = (0, 128, 0) if request.POST['selectbasic'] == '1' else (255, 0, 0)
         text_size, _ = cv2.getTextSize(text, font, font_scale, thickness)
         text_width, text_height = text_size
-        scroll_speed = text_width // (duration - 1)
+        scroll_speed = (text_width + size) // duration
 
         # создаем фон
         background = np.zeros((size, size, 3), dtype=np.uint8)
