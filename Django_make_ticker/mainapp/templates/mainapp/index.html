@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticker</title>
+</head>
+<body>
+<form class="form-horizontal" method="post" action="/mainapp/">
+  {% csrf_token %}
+<fieldset>
+
+<!-- Form Name -->
+<legend>Параметры видео</legend>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="textinput">Текст бегущей строки</label>
+  <div class="col-md-4">
+  <input id="textinput" name="textinput" type="text" placeholder="placeholder" class="form-control input-md">
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="selectbasic">Выбор цвета</label>
+  <div class="col-md-4">
+    <select id="selectbasic" name="selectbasic" class="form-control">
+      <option value="1">Зеленый</option>
+      <option value="2">Синий</option>
+    </select>
+  </div>
+</div>
+
+  <!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton">Создать и скачать видео</label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit">Старт</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+
+</body>
+</html>
